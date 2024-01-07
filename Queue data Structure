@@ -1,0 +1,80 @@
+package queueproblems;
+
+
+
+public class BasicOfQueue {
+
+	int rearQ,frontQ;
+	int capacityOfQ;
+	static int[] a;
+	public BasicOfQueue(int size)
+	{
+		capacityOfQ=size;
+		a=new int[capacityOfQ];
+		
+	}
+	//insert the element in the rear end 
+	void enQueue(int value)
+	{
+		if(rearQ==capacityOfQ)
+		{
+			System.out.println("Queue is already full,you cannot insert element");
+			
+		}
+		else
+		{
+			a[rearQ]=value;
+			rearQ++;
+		}
+	}
+	void deQueue()
+	{
+		if(rearQ==0)
+		{
+			System.out.println("There is no element in the queue, you cannot remove");
+		}
+		else
+		{
+			for(int i=0;i<rearQ-1;i++)
+			{
+				a[i]=a[i+1];
+			}
+			rearQ--;
+		}
+	}
+	public void display()
+	{
+		if(rearQ==0)
+		{
+			System.out.println("Queue is empty nothing to display");
+		}
+		else
+		{
+			for(int i=0;i<rearQ;i++)
+			{
+				System.out.print(a[i]+" ");
+			}
+			System.out.println();
+		}
+		
+			
+	}
+	//main method
+	
+	
+	public static void main(String[] args) 
+	{
+		BasicOfQueue bq=new BasicOfQueue(5);
+		
+		bq.enQueue(2);
+		bq.enQueue(5);
+		bq.enQueue(9);
+		bq.enQueue(3);
+		bq.enQueue(4);
+	
+		bq.display();
+		bq.deQueue();
+		bq.display();
+	}
+
+}
